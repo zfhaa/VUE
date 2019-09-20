@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+    .width{
+        width: 800px;
+        height: 500px;
+    }
+    .red{
+        color: red;
+    }
+    .bg{
+        background: black;
+        width: 50px;
+    }
+    </style>
+</head>
+
+<!-- vue指令 -->
+<!-- 1.v-bind 绑定属性 v-bind<==> : -->
+<!-- class  []  {} -->
+<!-- style {} [] -->
+<body>
+   <div id="app">
+       <img :src="imgUrl" :alt="name" :style="[{width:imgSize},imgStyle ]" >
+       <h4 :class="[{red:!true},h4ClassBa]" class="red">{{ name }}</h4>
+   </div>
+    <script>
+    const vm = new Vue({
+        el:"#app",
+        data:{
+            name:"杨幂",
+            imgUrl:"1.jpg",
+            imgSize:"200px",
+            h4Class:"red",
+            h4ClassBa:"bg",
+            imgStyle:{
+                border:'5px solid red'
+            }
+        }
+    })
+    </script>
+</body>
+</html>

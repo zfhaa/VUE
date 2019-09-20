@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+    </style>
+</head>
+<!-- 2.v-on：(<==>@) -->
+
+<body>
+    
+    <div id="app">
+            <button @:click="handleClick">点击</button>
+        <h4 :class="h4ClassArr[h4Index]">{{ name }}</h4>
+    </div>
+    <script>
+        
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                name: "杨幂",
+                h4ClassArr: ["red", "green", "yellow"],
+                h4Index: 0,
+                h4Count: 0
+               
+            },
+          
+            methods: {
+                handleClick() {
+                    //this == vm
+                    // console.log("aa")
+                    this.h4Index = ++ this.h4Count % 3;
+                }
+            }
+           
+        })
+       
+    </script>
+</body>
+
+</html>

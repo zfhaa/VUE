@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 父 -> 子 传值 props ,校验, v-bind="Object" 
+    子 -> 父  传值 $emit('handle',value); -->
+    <div id="app">
+        <my-content v-bind="childrenInfo"></my-content>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            childrenInfo: {
+                title: `时空的减肥计划`,
+                content: 44845,
+
+            }
+        },
+        components: {
+            myContent: {
+                // props:["title","content"],
+                props: { //校验：设置组件指定的类型
+                    title: {
+                        type: String,
+                        default: `杉杉最美` //默认值 如果<my-content>里没有title 就用default里的值
+                    },
+                    content: {
+                        type: Number,
+                        required: true, //规则这个内容必须要传
+                        validator(val) { //校验：设置这个内容的要求
+                            return val > 10000
+                        }
+                    },
+
+
+                },
+
+                template: `
+            <div>
+            <h4>{{ title }}</h4>
+            <p>{{ content }}</p>
+         
+            </div>
+            `,
+                // methods: {
+                //     handleClick() {
+                //         this.ownNumber++;
+                //     }
+                // }
+            }
+        }
+    })
+</script>
+
+</html>

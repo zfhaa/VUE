@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+        .square-box {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+1.ref:dom对象的引用是该对象，组件的引用是组件的实例对象
+2.ref同名时，后添加的会覆盖前面的，引用指向的是最后一个元素
+3.在v-for时添加引用，引用的值类型是数组，数组里面是一个一个dom对象/组件实例对象
+
+<body>
+
+    <div id="app">
+        <square-change></square-change>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components: {
+                squareChange: {
+                    data() {
+                        return {
+                            colorArr: ["red", "orange", "yellow", "green"]
+                        }
+                    },
+                    template: `
+            <div>
+            <button v-for="color in colorArr" 
+            :key="color" 
+            :style="{backgroundColor:color}" 
+             @click="handleClick(color)"
+             :data-color="color"
+             >{{ color }}</button>
+           
+           <div class="square-box"  ref="squareBox"></div>
+            </div>
+            `,
+                    methods: {
+                        handleClick(color) {
+                            const squareBox = this.$refs.squareBox;
+                            squareBox.style.backgroundColor = color;
+                            // const color = e.target.dataset.color;利用H5特性
+                            console.log(color)
+                        }
+                    }
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>

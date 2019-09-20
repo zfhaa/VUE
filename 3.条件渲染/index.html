@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .pink {
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <!-- v-if 能够控制元素的显示与隐藏 -->
+    <!-- v-else -->
+    <!-- v-else-if -->
+    <!-- v-show -->
+    <!-- v-show 能够控制元素的显示与隐藏 -->
+    <!-- 区别 -->
+    <!-- 1.v-if控制的dom的移除/添加  v-show控制dom的样式显示与隐藏（display） -->
+    <!-- 频繁的切换显示/隐藏要使用v-show -->
+    <!-- 只判断一次时，使用v-if -->
+    <!-- 2.v-if可以写在template上，v-show不行，写了也没有 -->
+
+    <div id="app">
+        <button @click="handleClick">{{ text }}</button>
+        <!-- <div class="box red" v-if="show"></div>
+        <div class="box blue" v-else></div> -->
+
+        <!-- <div class="box red" v-if="num===0"></div>
+        <div class="box pink" v-else-if="num===1"></div>
+        <div class="box blue" v-else></div> -->
+
+        <template v-if="show">
+            <!-- 在不添加新的元素的情况下控制两个相同效果的div -->
+            <div class="box red"></div>
+            <div class="box pink"></div>
+        </template>
+
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                show: true,
+                text: "隐藏",
+                num: 0
+
+            },
+            methods: {
+                handleClick() {
+                    this.show = !this.show;
+                    this.text = this.show ? "隐藏" : "显示";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

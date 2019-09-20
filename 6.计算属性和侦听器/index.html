@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- watch 侦听器 -->
+    <!-- computed 计算属性 -->
+    <div id="app">
+        {{ desc }}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                name: "杉杉",
+                age: "18",
+                looks: "very beautiful",
+                // desc: "姓名：杉杉  年龄：18"
+            },
+            methods: {
+
+            },
+            watch: {
+                // name() {
+                //    this.desc = `姓名:${this.name} 年龄:${this.age}`;
+                // },
+                // age(){
+                //     this.desc = `姓名:${this.name} 年龄:${this.age}`;
+                // }
+            },
+            computed: {
+                   desc(){
+                       return `姓名:${this.name} 年龄:${this.age}`;
+                   }
+            }
+        })
+    </script>
+</body>
+
+</html>

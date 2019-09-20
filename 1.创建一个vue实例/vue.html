@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- {{ 1+1 }} -->
+        {{ a }}
+    </div>
+    <script>
+        //element元素
+        //插值表达式{{ }}
+        //vm.$nextTick
+        //vm.$mount
+        const vm = new Vue({
+            // el: "#app",  
+            data: {
+                a: 10
+            }
+        })
+        vm.$mount("#app") //等于 el: "#app"
+        vm.a = 20;
+        vm.a = 90;
+        vm.a = 100;
+        console.log(vm.a);
+        console.log(vm.$el.innerHTML);//只能拿到更改之前的数据
+        vm.$nextTick(() => {
+            console.log(vm.$el.innerHTML);//拿到更改之后的数据
+        })
+    </script>
+</body>
+
+</html>

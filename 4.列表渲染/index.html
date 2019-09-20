@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<!-- v-for -->
+<!-- arr:(item,index) in arr -->
+<!-- obj:(value,key,index) in obj -->
+<!-- key number/string 唯一的 -->
+
+<!-- 更改数组  -->
+<!-- 1.不能通过索引的方式去更改数组，这样不会渲染 -->
+<!-- 2.不能通过更改长度的方式更改数组，这样不会渲染 -->
+<!-- 3.数组变异方法：pop、shift、unshift、splice、sort、reverse、push -->
+
+<!-- 更改对象 -->
+<!-- 1.向对象内添加或者删除属性，不会渲染页面 -->
+<!-- 2.vm.$set -->
+
+<body>
+    <div id="app">
+        <!-- <ul>
+          <li v-for="(item, index) in arr">{{ item }}  --{{ index }}</li>
+      </ul>
+      <h4 v-for="(value,key,index) in obj">{{ value }} --{{ key }} --{{index}}</h4>
+      <p v-for="item in 10">{{ item }}</p>
+     <div v-for="item in 'zuofenghua'">{{ item }}</div> -->
+
+        <!-- <ul>
+            <li v-for="item in arr">{{ item }}</li>
+
+        </ul>
+        <button @click="handleClick">click</button> -->
+        <h4 v-for="(value,key,index) in obj">{{ value }} --{{ key }} --{{index}}</h4>
+        <button @click="handleClick">click</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            arr: ["html", "js", "vue"],
+            obj: {
+                name: "yangmi",
+                age: "18",
+                looks: "beautiful"
+            }
+
+        },
+        methods: {
+            handleClick() {
+                // this.arr.push("react")
+                this.$set(this.obj,"salary",10000000)
+            }
+        }
+    })
+</script>
+
+</html>

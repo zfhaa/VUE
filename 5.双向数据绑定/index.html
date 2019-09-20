@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- v-model实现数据的双向绑定  :value+@input  的语法糖 -->
+    <!-- textarea -->
+    <!-- input checkbox -->
+    <!-- input radio -->
+    <!-- select -->
+        <div id="app">
+        <!-- <input type="text" @input="handleInput" > -->
+        <!-- <input type="text" v-model="value" />
+        <span>{{ value }}</span> -->
+
+
+        <!-- <textarea v-model="content"></textarea> -->
+        <!-- {{ content }} -->
+
+
+        <!-- <input type="checkbox" v-model="checked" />
+        {{ checked }} -->
+
+
+        <!-- <label for="html">html</label>
+        <input type="checkbox" value="html" id="html" v-model="checkedList">
+        <label for="js">js</label>
+        <input type="checkbox" value="js" id="js" v-model="checkedList">
+        <label for="vue">vue</label>
+        <input type="checkbox" value="vue" id="vue" v-model="checkedList">
+        {{ checkedList }} -->
+
+
+        <!-- <label for="html">html</label>
+        <input type="radio" id="html" value="html" v-model="picked" />
+        <label for="js">js</label>
+        <input type="radio" id="js" value="js" v-model="picked" />
+        <label for="vue">vue</label>
+        <input type="radio" id="vue" value="vue" v-model="picked" />
+        {{ picked }} -->
+
+        <!-- <select name="" id="" v-model="selected">
+            <option value="" disabled>请选择</option>
+            <option value="html">html</option>
+            <option value="js">js</option>
+            <option value="vue">vue</option>
+        </select>
+        {{ selected }} -->
+
+
+        <select name="" id="" v-model="selectedList" multiple>
+                <option value="" disabled>请选择</option>
+                <option value="html">html</option>
+                <option value="js">js</option>
+                <option value="vue">vue</option>
+            </select>
+            {{ selectedList }}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                value: "杉杉",
+                content:"",
+                checked:true,
+                checkedList:[],
+                picked:'',
+                selected:"",
+                selectedList:[]
+            },
+            // methods: {
+            //     handleInput(e) {
+            //         this.value = e.target.value;
+            //     }
+            // }
+        })
+    </script>
+</body>
+
+</html>
